@@ -17,7 +17,7 @@ public class Exerc {
 	//	System.out.println("Links in the Page");
 	//System.out.println(driver.findElements(By.tagName("a")).size());
 	//Count of links in the footer section of the page
-	WebElement footer=driver.findElement(By.xpath(".//*[@id='glbfooter']"));
+	WebElement footer=driver.RealElements (By.xpath(".//*[@id='glbfooter']"));
 	//System.out.println("Links in the footer section");
 	//System.out.println(footer.findElements(By.tagName("a")).size());
 	WebElement col=driver.findElement(By.xpath(".//*[@id='gf-BIG']/table/tbody/tr/td[2]/ul"));
