@@ -1,0 +1,84 @@
+package RadioButtons;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Buttons {
+
+	public static void main(String[] args) {
+		
+		// TODO Auto-generated method stub
+		System.setProperty("webdriver.chrome.driver","C://Chromedriver.exe");
+WebDriver driver = new ChromeDriver();
+driver.get("http://www.echoecho.com/htmlforms10.htm");
+//driver.findElement(By.xpath("//*[@value='Butter']")).click();
+int count = driver.findElements(By.xpath("//*[@name='group1']")).size();
+for(int i=0;i < count;i++)
+{
+	String text = driver.findElements(By.xpath("//*[@name='group1']")).get(1).getAttribute("value");
+	
+	if(text.equals("Butter")){
+		driver.findElements(By.xpath("//*[@name='group1']")).get(1).click();
+	}
+}
+	}
+}
+
+
+*** Test Case For Allert box:-In some cases when we enter a button, then we can see a alert box over their.For which we cannot get the xpath so in that cases we have to use switchto().alert().
+package alert;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class AlertBox {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		System.setProperty("webdriver.chrome.driver","C://Chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		driver.get("http://www.tizag.com/javascriptT/javascriptalert.php");
+		driver.findElement(By.xpath("html/body/table[3]/tbody/tr[1]/td[2]/table/tbody/tr/td/div[4]/form/input")).click();
+		System.out.println(driver.switchTo().alert().getText());
+		//driver.switchTo().alert().sendKeys("dede");
+		driver.switchTo().alert().accept();
+		//driver.switchTo().alert().dismiss();
+	}
+
+}
+
+*** Here we are planning to find out wheather the box is hidden or not for example if we click on some radio buttons then after we cannot see some boxes .
+Here we are using isDisplayed,isEnabled,isSelected,getAttribute,getText,getSize.
+
+package webelements;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class webelements {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		WebDriver driver = new FirefoxDriver();
+		driver.get("http://us.makemytrip.com");
+		System.out.println("Before clicking the multi city radio button");
+		System.out.println(driver.findElement(By.xpath(".//*[@id='top_content']/div[2]/div[2]/div[2]/div[1]/div[7]/span/span[4]/a/span[5]")).isDisplayed());
+		driver.findElement(By.xpath(".//*[@id='trip_type']/label[3]")).click();
+		System.out.println("After clicking the multi city radio button");
+		System.out.println(driver.findElement(By.xpath(".//*[@id='top_content']/div[2]/div[2]/div[2]/div[1]/div[7]/span/span[4]/a/span[5]")).isDisplayed());
+		
+	}
+
+}
+
+How to hadle the drop down Ui- Using select class 
+different methods - select the option  by using text,index,value attribute and also you can select multiple options from drop down and even we can deselect - 23,24 lecthures 
+How to handle the alerts -Using  driver.switchto.alert().accept/dismiss/getText();
+
+For checking the check  box is checked  or not ---isSelecting 
+
+isDisabled /isEnabled
